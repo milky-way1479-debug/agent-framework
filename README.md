@@ -2,6 +2,13 @@
 
 # Welcome to Microsoft Agent Framework!
 
+> **This fork: Human × Agent governance research extension**
+>
+> [Layer 1 and Layer 2 draft integration](governance/README.md) and the
+> [owner-governed Python research runtime](agent_factory/README.md) are additions maintained for this fork.
+> The Microsoft core is preserved. The extension currently supports offline mock execution only;
+> storing drafts does not enact norms or activate production. Upstream examples do not automatically use its controls.
+
 [![Microsoft Foundry Discord](https://dcbadge.limes.pink/api/server/b5zjErwbQM?style=flat)](https://discord.gg/b5zjErwbQM)
 [![MS Learn Documentation](https://img.shields.io/badge/MS%20Learn-Documentation-blue)](https://learn.microsoft.com/en-us/agent-framework/)
 [![PyPI](https://img.shields.io/pypi/v/agent-framework)](https://pypi.org/project/agent-framework/)

@@ -1,0 +1,22 @@
+{
+  "mode": "research",
+  "owner_role": "system-owner",
+  "purpose": "Verify governance controls using local mock actions only",
+  "network": false,
+  "shell": false,
+  "external_delegation": false,
+  "max_operations": 8,
+  "max_tasks": 8,
+  "max_task_seconds": 300,
+  "max_approval_seconds": 60,
+  "max_depth": 3,
+  "tools": [
+    {
+      "name": "uppercase_mock",
+      "kind": "mock",
+      "arguments": {"text": "string"},
+      "cost_units": 1,
+      "timeout_seconds": 2
+    }
+  ]
+}
