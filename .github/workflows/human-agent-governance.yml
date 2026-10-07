@@ -1,0 +1,30 @@
+name: Human Agent governance research tests
+
+on:
+  push:
+    branches: ["feature/human-agent-governance-2026-10-04"]
+    paths: ["agent_factory/**", "governance/**", ".github/workflows/human-agent-governance.yml"]
+  pull_request:
+    paths: ["agent_factory/**", "governance/**", "python/packages/core/**", ".github/workflows/human-agent-governance.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # same pin as upstream workflows
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # same pin as upstream workflows
+        with:
+          python-version: "3.12"
+      - name: Install fork SDK and local extension
+        run: python -m pip install -e ./python/packages/core -e './agent_factory[test]' ruff==0.16.10
+      - name: Test enforcement and real SDK integration
+        run: python -m pytest agent_factory/tests -q
+      - name: Check extension style
+        run: python -m ruff check agent_factory
+      - name: Run offline mock workflow
+        run: python -m human_agent_governance.demo --repository . --simulate-owner-approval

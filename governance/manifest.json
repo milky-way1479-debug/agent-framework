@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "draft",
+  "enacted": false,
+  "activated": false,
+  "captured_at": "2026-10-04",
+  "upstream_base": "f1fb145c4d80191aa86b3480d12112d828233763",
+  "sources": [
+    {
+      "path": "governance/sources/CONSTITUTION.md",
+      "repository": "milky-way1479-debug/Human-Agent-Constitution",
+      "commit": "08a05b7fd631d19e06366ed9aac387e422bb3573",
+      "version": "v0.1",
+      "sha256": "98b769aedadceaeed700aae27b852bb29db576a92a85aad79babb704c2f645c1",
+      "normalization": "CRLF converted to LF; source wording preserved"
+    },
+    {
+      "path": "governance/sources/OPERATING_RULES.md",
+      "repository": "milky-way1479-debug/Human-Agent-Operating-Rules",
+      "commit": "7b927c70b3e25eef860976f277ac13946fc638b6",
+      "version": "v0.2",
+      "sha256": "57e5d2a5401abaa8a93223e12fb9f685854e309413d6bf50e0c9544120069912",
+      "normalization": "CRLF converted to LF; source wording preserved"
+    }
+  ]
+}
