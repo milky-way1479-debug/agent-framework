@@ -3,3 +3,10 @@
 *.key
 .venv/
 .ruff_cache/
+events.jsonl
+signing.key
+gateway.token
+checkpoint
+checkpoint.pending
+writer.lock
+*.sock

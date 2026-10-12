@@ -56,3 +56,17 @@ SDK接続は、このフォークに含まれる `agent-framework-core==1.19.0` 
 実サービスに接続する前の追加条件は [BOUNDARIES.md](docs/BOUNDARIES.md)、
 本番有効化の未完了条件は [ACTIVATION_CHECKLIST.md](docs/ACTIVATION_CHECKLIST.md) に記載しています。
 復旧方法は [ROLLBACK.md](docs/ROLLBACK.md) を参照してください。
+
+## Agent Flight Recorder（追加MVP）
+
+別プロセスで保存する独立監査、既存統制を再利用するExecution Gateway、
+5W1H照合、人間用端末ダッシュボード、データ引渡し記録を追加しました。
+既存の入口は変更せず、この追加経路を選んだ模擬操作だけを記録します。
+記録範囲、改ざん検出、OS境界、未実装事項、停止・復旧は [FLIGHT_RECORDER.md](docs/FLIGHT_RECORDER.md) を参照してください。
+
+```sh
+.venv/bin/python -m human_agent_governance.flight_recorder.demo --repository .
+```
+
+Linux用・ダミーデータのみ。端末で具体的な操作を確認し、承認・拒否・停止を操作できます。
+このdemoは本番デプロイや規範の正式制定を行いません。

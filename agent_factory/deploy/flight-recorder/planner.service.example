@@ -1,0 +1,32 @@
+# REVIEW TEMPLATE ONLY. The trusted owner must supply a bounded offline entrypoint.
+[Unit]
+Description=Agent planner (no authority, no credentials, offline research)
+
+[Service]
+Type=simple
+User=afr-planner
+Group=afr-planner
+ExecStart=REPLACE_WITH_REVIEWED_OFFLINE_PLANNER_ENTRYPOINT
+UMask=0077
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+AmbientCapabilities=
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+PrivateNetwork=yes
+RestrictAddressFamilies=none
+RestrictNamespaces=yes
+RestrictSUIDSGID=yes
+ProtectProc=invisible
+ProcSubset=pid
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+InaccessiblePaths=/var/lib/afr-recorder /var/lib/afr-anchor /var/lib/afr-gateway /etc/afr-recorder /etc/afr-gateway /run/afr-ipc
+ReadWritePaths=/var/lib/afr-planner
+TasksMax=8
+MemoryMax=256M
+RuntimeMaxSec=30
+Restart=no
