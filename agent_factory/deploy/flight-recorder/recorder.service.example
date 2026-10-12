@@ -1,0 +1,29 @@
+# REVIEW TEMPLATE ONLY. Not installed or activated by this change.
+[Unit]
+Description=Agent Flight Recorder (offline research, isolated identity)
+
+[Service]
+Type=simple
+User=afr-recorder
+Group=afr-ipc
+UMask=0077
+ExecStart=/opt/agent-factory/.venv/bin/python -m human_agent_governance.flight_recorder.service --directory /var/lib/afr-recorder --checkpoint /var/lib/afr-anchor/checkpoint --socket /run/afr-ipc/recorder.sock --token-file /etc/afr-recorder/gateway.token --gateway-uid REPLACE_WITH_REVIEWED_GATEWAY_UID
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+AmbientCapabilities=
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+RestrictAddressFamilies=AF_UNIX
+IPAddressDeny=any
+RestrictNamespaces=yes
+RestrictSUIDSGID=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+ReadWritePaths=/var/lib/afr-recorder /var/lib/afr-anchor /run/afr-ipc
+InaccessiblePaths=/var/lib/afr-gateway /etc/afr-gateway
+TasksMax=8
+MemoryMax=256M
+Restart=no

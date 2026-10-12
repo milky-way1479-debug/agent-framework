@@ -1,0 +1,32 @@
+# REVIEW TEMPLATE ONLY. Supply reviewed owner authentication/terminal supervision before activation.
+[Unit]
+Description=Agent execution gateway (offline research)
+Requires=recorder.service
+After=recorder.service
+
+[Service]
+Type=simple
+User=afr-gateway
+Group=afr-ipc
+ExecStart=REPLACE_WITH_REVIEWED_GATEWAY_ENTRYPOINT
+UMask=0077
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+AmbientCapabilities=
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+RestrictAddressFamilies=AF_UNIX
+IPAddressDeny=any
+RestrictNamespaces=yes
+RestrictSUIDSGID=yes
+ProtectProc=invisible
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+InaccessiblePaths=/var/lib/afr-recorder /var/lib/afr-anchor /etc/afr-recorder
+ReadWritePaths=/var/lib/afr-gateway
+TasksMax=8
+MemoryMax=256M
+Restart=no
